@@ -33,8 +33,10 @@ def home():
 def login():
     myform = MyForm()
     if  myform.validate_on_submit():
-        flash("Log in successful", 'success')
-        return render_template('home.html') 
+        if myform.email.data == "admin@email.com" and myform.password.data == "12345678":
+            return render_template('success.html') 
+        else:
+            return render_template('denied.html')
     return render_template('login.html', form=myform)
 
 if __name__ == '__main__':
