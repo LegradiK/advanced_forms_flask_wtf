@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash
 from flask_wtf import FlaskForm
+from flask_bootstrap import Bootstrap5
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 
@@ -23,7 +24,7 @@ class MyForm(FlaskForm):
 
 app = Flask(__name__)
 app.secret_key = "any-string-you-want-just-keep-it-secret"
-
+bootstrap = Bootstrap5(app)
 
 @app.route("/")
 def home():
